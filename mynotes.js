@@ -129,11 +129,10 @@ const noteDelete = (newNote, type, value) => {
 const deleteAllNotes = (type, value) => {
     JSON.parse(localStorage.getItem("types"))
     JSON.parse(localStorage.getItem("values"))
-    noteArea.textContent = ''
-    const types = []
-    const values = []
-    localStorage.removeItem(type);
-    localStorage.removeItem(value);
+    noteArea.textContent = '';
+    types.length = 0;
+    values.length = 0;
+    localStorage.clear();
     localStorage.setItem("types", JSON.stringify(types));
     localStorage.setItem("values", JSON.stringify(values));
 }
