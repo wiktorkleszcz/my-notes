@@ -14,7 +14,6 @@ const textArea = document.querySelector('.text')
 const error = document.querySelector('.error')
 let selectedValue;
 
-let cardID = 0
 
 window.addEventListener('load', () => {
 
@@ -74,7 +73,6 @@ const addNote = () => {
 const createNote = (type, value) => {
     const newNote = document.createElement('div');
     newNote.classList.add('note');
-    newNote.setAttribute('id', cardID);
 
     const noteHead = document.createElement('div');
     noteHead.classList.add('note-header');
@@ -88,9 +86,7 @@ const createNote = (type, value) => {
     const deleteNote = document.createElement('button');
     deleteNote.classList.add('delete-note');
     noteHead.appendChild(deleteNote);
-    deleteNote.addEventListener('click', () => {
-        noteDelete(cardID, type, value);
-    });
+
 
     const noteIcon = document.createElement('i');
     noteIcon.classList.add('fas');
@@ -110,18 +106,18 @@ const createNote = (type, value) => {
 
     selectedValue = type
     checkColor(newNote);
+    deleteNote.addEventListener('click', () => noteDelete(newNote, type, value));
 };
 
 const selectValue = () => {
     selectedValue = category.options[category.selectedIndex].text;
 };
 
-const noteDelete = (id, type, value) => {
+const noteDelete = (newNote, type, value) => {
     JSON.parse(localStorage.getItem("types"))
     JSON.parse(localStorage.getItem("values"))
     const noteArea = document.querySelector('.note-area')
-    const noteToDelete = document.getElementById(id)
-    noteArea.removeChild(noteToDelete);
+    noteArea.removeChild(newNote);
     types.pop(type);
     values.pop(value);
     localStorage.removeItem(type);
