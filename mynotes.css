@@ -1,0 +1,131 @@
+:root {
+    --cream:#F7EBEC;
+    --thistle:#DDBDD5;
+    --rosequartz:#AC9FBB;
+    --gray:#59656F;
+    --raisinblack:#1D1E2C;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem;
+    height: 7.5rem;
+}
+
+.menu button,
+.note-panel .save,
+.note-panel .cancel {
+    padding: 0.75rem 1.5625rem;
+    background: none;
+    border: 0.0625rem solid var(--gray);
+    border-radius: 0.3125rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+
+.menu button:hover,
+.note-panel .save:hover,
+.note-panel .cancel:hover {
+    background-color: var(--raisinblack);
+    color: var(--cream);
+}
+
+.icon {
+    margin-right: 0.625rem;
+}
+
+.add {
+    margin-right: 1.25rem;
+}
+
+.note-area {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 1.25rem;
+}
+
+.note {
+    margin: 2.5rem 1.25rem;
+    width: 15rem;
+    background-color: var(--thistle);
+    border: 0.0625rem solid var(--raisinblack);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: rgba(0, 0, 0, .06);
+}
+
+.note-header .delete-note {
+    background: none;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.note-body {
+    padding: 1.25rem 0.9375rem;
+    font-size: 0.875rem;
+}
+
+.note-panel {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2.5rem 0;
+    width: 37.5rem;
+    background-color: #fff;
+    box-shadow: 0 0 0.625rem #000;
+    border-radius: 0.3125rem;
+}
+
+.note-panel h2 {
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+
+.note-panel label {
+    margin-bottom: 0.625rem;
+}
+
+.note-panel .text,
+.note-panel .category {
+    margin-bottom: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    width: 100%;
+    max-width: 90%;
+    max-height: 37.5rem;
+    font-size: 1rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--raisinblack);
+}
+
+.note-panel .error {
+    margin-bottom: 1.25rem;
+    color: red;
+    visibility: hidden;
+}
